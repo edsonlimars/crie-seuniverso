@@ -106,6 +106,8 @@ h1,h2{font-family:'DM Serif Display',serif;font-weight:400;letter-spacing:-.022e
   .final-cta{min-height:620px}
   .final-cta .cta-content{padding:80px 7vw}
   .final-cta .cta-image img{object-position:64% center}
+  .final-cta h2{font-size:clamp(2.35rem,9vw,3.35rem);line-height:1.06;letter-spacing:-.035em;margin-bottom:28px}
+  .final-cta .button{font-size:15px;padding:15px 16px;gap:18px}
 
   /* Leitura mobile: textos corridos ganham corpo sem alterar os títulos. */
   body{font-size:17px;line-height:1.62}
