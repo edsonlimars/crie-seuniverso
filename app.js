@@ -32,7 +32,7 @@ const pages = {
   ${finalCta()}`,
   '/sites-estrategicos': () => intro('SITE ESTRATÉGICO','Uma presença que torna seu valor mais fácil de reconhecer.','Um site é uma parte visível de uma estrutura maior: clareza sobre quem você é, como trabalha, para quem e por que isso importa.') + `<section class="section organizing-section"><div class="organizing-copy"><p class="eyebrow">O QUE ELE ORGANIZA</p><h2>Mais do que páginas, um caminho de entendimento.</h2><p>O Site Estratégico traduz trajetória, diferenciais e objetivos em uma experiência profissional. Ele organiza sua mensagem, dá contexto à sua autoridade e cria um próximo passo simples para quem chega.</p><ul class="checklist"><li>Diagnóstico e direção estratégica</li><li>Estrutura de mensagens e conteúdo</li><li>Design editorial e responsivo</li><li>SEO técnico de base</li><li>Contato direto por WhatsApp</li></ul></div>${image('organizacao-do-caos-a-clareza-v1.png','Elementos dispersos conectados até uma presença digital organizada','organization-diagram')}</section>${finalCta()}`,
   '/como-funciona': () => intro('COMO FUNCIONA','Um processo para dar forma ao que já existe.','A jornada respeita o momento do negócio e transforma clareza em decisões práticas, linguagem e presença.') + `<section class="method-full">${method.map(x=>`<article><div class="method-card-top"><small>${x[0]}</small><span class="method-icon">${methodIcons[x[0]]}</span></div><h2>${x[1]}</h2><p>${x[2]}</p></article>`).join('')}</section>${finalCta()}`,
-  '/sobre': () => intro('SOBRE O ESTÚDIO','Estratégia que começa pela pessoa e chega à presença.','A Crie SeUniverso é um estúdio de arquitetura de posicionamento e presença digital.') + `<section class="section about-section"><div class="about-photo-panel">${image('edson-novo.jpeg','Edson Lima em ambiente de trabalho','portrait-image')}</div><div class="about-copy"><p class="eyebrow">EDSON LIMA</p><h2>Experiência para olhar o negócio com mais contexto.</h2><p>O estúdio reúne experiência em negócios, comportamento humano, terapia, marketing e inteligência artificial. Esse repertório não serve para criar uma identidade artificial: serve para reconhecer, organizar e expressar a identidade que já está no trabalho e no negócio.</p><p>Com profundidade, mas sem promessas que ultrapassam o campo da estratégia e da presença digital.</p></div></section>${finalCta()}`,
+  '/sobre': () => intro('SOBRE O ESTÚDIO','Estratégia que começa pela pessoa e chega à presença.','A Crie SeUniverso é um estúdio de arquitetura de posicionamento e presença digital.') + `<section class="section about-section"><div class="about-photo-panel">${image('edson-novo.jpeg','Edson Lima em ambiente de trabalho','portrait-image')}</div><div class="about-copy"><p class="eyebrow">EDSON LIMA</p><h2>Experiência para olhar o negócio com mais contexto.</h2><p>Nosso estúdio reúne a experiência de mais de 20 anos do Edson em negócios, comportamento humano, terapia, marketing e inteligência artificial. Esse repertório não serve para criar uma identidade artificial: serve para reconhecer, organizar e expressar a identidade que já está no trabalho e no negócio.</p><p>Com profundidade, mas sem promessas que ultrapassam o campo da estratégia e da presença digital.</p></div></section>${finalCta()}`,
   '/contato': () => intro('CONTATO','Vamos olhar para o que o seu negócio já tem e ainda não está conseguindo mostrar?','Uma conversa inicial é o lugar para entender seu momento e avaliar se o Site Estratégico faz sentido agora.') + `<section class="contact-action">${cta('Conversar pelo WhatsApp')}<p>Sem formulário longo. Comece com uma mensagem direta.</p></section>`
 };
 function finalCta(){return `<section class="final-cta">${image('cta-novo.jpeg','Edson Lima em seu estúdio, em frente à mesa de trabalho','cta-image')}<div class="cta-content"><p class="eyebrow">PRÓXIMO PASSO</p><h2>Vamos olhar para o que o seu negócio já tem e ainda não está conseguindo mostrar?</h2>${cta('Conversar pelo WhatsApp')}</div></section>`}
@@ -50,7 +50,7 @@ const main = document.querySelector('main');
 function closeMenu(){
   nav.classList.remove('open');
   menuToggle.setAttribute('aria-expanded','false');
-  menuToggle.setAttribute('aria-label','Abrir menu');
+  menuToggle.setAttribute('aria-label','Abrir menu de navegação');
 }
 
 function render(){
@@ -69,7 +69,7 @@ function render(){
 menuToggle.addEventListener('click',e=>{
   const expanded = e.currentTarget.getAttribute('aria-expanded') === 'true';
   e.currentTarget.setAttribute('aria-expanded',String(!expanded));
-  e.currentTarget.setAttribute('aria-label',expanded ? 'Abrir menu' : 'Fechar menu');
+  e.currentTarget.setAttribute('aria-label',expanded ? 'Abrir menu de navegação' : 'Fechar menu de navegação');
   nav.classList.toggle('open',!expanded);
 });
 addEventListener('hashchange',render);
