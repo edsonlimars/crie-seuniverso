@@ -46,6 +46,7 @@ const routeTitles = {
 const menuToggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('nav');
 const main = document.querySelector('main');
+const homeLink = document.querySelector('.header-brand');
 
 function closeMenu(){
   nav.classList.remove('open');
@@ -71,6 +72,12 @@ menuToggle.addEventListener('click',e=>{
   e.currentTarget.setAttribute('aria-expanded',String(!expanded));
   e.currentTarget.setAttribute('aria-label',expanded ? 'Abrir menu de navegação' : 'Fechar menu de navegação');
   nav.classList.toggle('open',!expanded);
+});
+homeLink.addEventListener('click',e=>{
+  e.preventDefault();
+  closeMenu();
+  if(location.hash !== '#/') location.hash = '/';
+  else render();
 });
 addEventListener('hashchange',render);
 nav.addEventListener('click',closeMenu);
