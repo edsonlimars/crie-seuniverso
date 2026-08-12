@@ -1,4 +1,11 @@
 const whatsapp = 'https://wa.me/5551981555601?text=' + encodeURIComponent('Olá, quero entender como a Crie SeUniverso pode me ajudar a organizar meu posicionamento e meu site.');
+const routePaths = {
+  '/': '/',
+  '/sites-estrategicos': '/sites-estrategicos/',
+  '/como-funciona': '/como-funciona/',
+  '/sobre': '/sobre/',
+  '/contato': '/contato/'
+};
 const method = [['01','Escutar','Começamos entendendo o momento do negócio, o trabalho e o que hoje pede clareza.'],['02','Reconhecer','Identificamos aquilo que já tem valor, consistência e pode sustentar a sua autoridade.'],['03','Destravar','Organizamos decisões e padrões que deixam a mensagem, a oferta ou a presença dispersas.'],['04','Traduzir','Transformamos o que foi reconhecido em posicionamento, linguagem e direção.'],['05','Construir','Damos forma à presença digital com estratégia, conteúdo e uma experiência clara.'],['06','Sustentar','Deixamos uma base que acompanha o crescimento e permite evoluir com coerência.']];
 const methodIcons = {
   '01':'<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M9 24h5m5-8h4m-4 16h4m7-16c4 3 4 13 0 16m7-22c8 7 8 21 0 28"/><path d="M24 12v24"/></svg>',
@@ -23,7 +30,7 @@ const image = (name, alt, className='section-image') => {
 };
 const intro = (eyebrow,title,text) => `<section class="page-intro"><div><p class="eyebrow">${eyebrow}</p><h1>${title}</h1><p class="lead">${text}</p>${cta()}</div><div class="intro-mark" aria-hidden="true"><i></i><i></i><i></i></div></section>`;
 const pages = {
-  '/': () => `<section class="hero"><div class="hero-copy"><p class="eyebrow">ARQUITETURA DE POSICIONAMENTO E PRESENÇA DIGITAL</p><h1>O seu negócio já tem valor.<br><em>Falta uma presença</em> que faça isso ser percebido.</h1><p class="lead">A Crie SeUniverso organiza aquilo que já existe no seu trabalho — identidade, diferenciais, direção e modelo de negócio — em um posicionamento claro e um Site Estratégico que as pessoas certas conseguem encontrar, compreender e escolher.</p><div class="actions">${cta()}<a class="text-link" href="#/como-funciona">Entender como funciona <span>↓</span></a></div><p class="microcopy">Um primeiro olhar sobre o que o seu negócio já comunica — e sobre o que ainda pode ganhar forma.</p></div><aside class="hero-side">${image('hero-novo.jpeg','Edson Lima em ambiente profissional','hero-image')}<div class="hero-architecture"><p>clareza que se torna <strong>presença.</strong></p><div class="architecture"><b>quem conduz</b><span></span><b>modelo de negócio</b><span></span><b>posicionamento</b><span></span><b>presença digital</b></div></div></aside></section>
+  '/': () => `<section class="hero"><div class="hero-copy"><p class="eyebrow">ARQUITETURA DE POSICIONAMENTO E PRESENÇA DIGITAL</p><h1>O seu negócio já tem valor.<br><em>Falta uma presença</em> que faça isso ser percebido.</h1><p class="lead">A Crie SeUniverso organiza aquilo que já existe no seu trabalho — identidade, diferenciais, direção e modelo de negócio — em um posicionamento claro e um Site Estratégico que as pessoas certas conseguem encontrar, compreender e escolher.</p><div class="actions">${cta()}<a class="text-link" href="/como-funciona/">Entender como funciona <span>↓</span></a></div><p class="microcopy">Um primeiro olhar sobre o que o seu negócio já comunica — e sobre o que ainda pode ganhar forma.</p></div><aside class="hero-side">${image('hero-novo.jpeg','Edson Lima em ambiente profissional','hero-image')}<div class="hero-architecture"><p>clareza que se torna <strong>presença.</strong></p><div class="architecture"><b>quem conduz</b><span></span><b>modelo de negócio</b><span></span><b>posicionamento</b><span></span><b>presença digital</b></div></div></aside></section>
   <section class="section problem"><div class="number">01</div><div><p class="eyebrow">O QUE PODE ESTAR ACONTECENDO</p><h2>Quando o seu trabalho é maior do que a forma como ele aparece.</h2><p>Há profissionais competentes que continuam difíceis de encontrar, de compreender ou de escolher. A dependência do Instagram, uma mensagem genérica ou um site sem função estratégica criam distância entre a qualidade real do trabalho e a percepção do mercado.</p></div></section>
   <section class="statement"><p class="eyebrow">UM PONTO DE VISTA</p><h2>Posicionamento não começa na postagem.<br><em>Começa na clareza.</em></h2><p>Antes da estética ou da página, identidade, decisões, oferta e comunicação precisam conversar. É desse encontro que nasce uma presença consistente.</p></section>
   <section class="section method"><div class="number">02</div><div><p class="eyebrow">O MÉTODO</p><h2>Daquilo que está disperso ao que pode ser reconhecido.</h2><div class="method-grid">${method.map(x=>`<article><div class="method-card-top"><small>${x[0]}</small><span class="method-icon">${methodIcons[x[0]]}</span></div><h3>${x[1]}</h3><p>${x[2]}</p></article>`).join('')}</div></div></section>
@@ -37,10 +44,10 @@ const pages = {
 };
 function finalCta(){return `<section class="final-cta">${image('cta-novo.jpeg','Edson Lima em seu estúdio, em frente à mesa de trabalho','cta-image')}<div class="cta-content"><p class="eyebrow">PRÓXIMO PASSO</p><h2>Vamos olhar para o que o seu negócio já tem e ainda não está conseguindo mostrar?</h2>${cta('Conversar pelo WhatsApp')}</div></section>`}
 const routeTitles = {
-  '/': 'Crie SeUniverso — Site Estratégico',
-  '/sites-estrategicos': 'Sites Estratégicos — Crie SeUniverso',
-  '/como-funciona': 'Como funciona — Crie SeUniverso',
-  '/sobre': 'O estúdio — Crie SeUniverso',
+  '/': 'Crie SeUniverso | Posicionamento e Site Estratégico',
+  '/sites-estrategicos': 'Site Estratégico | Crie SeUniverso',
+  '/como-funciona': 'Como funciona | Crie SeUniverso',
+  '/sobre': 'Sobre a Crie SeUniverso | Edson Lima',
   '/contato': 'Contato — Crie SeUniverso'
 };
 const menuToggle = document.querySelector('.menu-toggle');
@@ -55,12 +62,17 @@ function closeMenu(){
 }
 
 function render(){
-  const requestedRoute = location.hash.slice(1) || '/';
+  const legacyRoute = location.hash.slice(1);
+  if (legacyRoute && routePaths[legacyRoute]) {
+    location.replace(routePaths[legacyRoute]);
+    return;
+  }
+  const requestedRoute = location.pathname.replace(/\/$/, '') || '/';
   const route = pages[requestedRoute] ? requestedRoute : '/';
-  if (requestedRoute !== route) history.replaceState(null, '', '#/');
+  if (requestedRoute !== route) history.replaceState(null, '', '/');
   main.innerHTML = pages[route]();
   document.querySelectorAll('[data-wa]').forEach(a=>a.href=whatsapp);
-  document.querySelectorAll('nav a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+route));
+  document.querySelectorAll('nav a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')===routePaths[route]));
   document.title = routeTitles[route];
   closeMenu();
   window.scrollTo(0,0);
@@ -76,10 +88,9 @@ menuToggle.addEventListener('click',e=>{
 homeLink.addEventListener('click',e=>{
   e.preventDefault();
   closeMenu();
-  if(location.hash !== '#/') location.hash = '/';
+  if(location.pathname !== '/') location.assign('/');
   else render();
 });
-addEventListener('hashchange',render);
 nav.addEventListener('click',closeMenu);
 document.querySelector('#year').textContent = new Date().getFullYear();
 render();
