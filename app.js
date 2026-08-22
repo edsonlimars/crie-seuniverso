@@ -86,6 +86,14 @@ function render(){
   const route = pages[requestedRoute] ? requestedRoute : '/';
   if (requestedRoute !== route) history.replaceState(null, '', '/');
   main.innerHTML = pages[route]();
+  if(route === '/'){
+    const architectureTagline = main.querySelector('.hero-architecture>p');
+    const architectureLabels = main.querySelectorAll('.hero-architecture .architecture b');
+    if(architectureTagline) architectureTagline.innerHTML = 'do repertório à <strong>escolha.</strong>';
+    ['experiência real','foco de entrada','oferta explicada','site estratégico'].forEach((label,index)=>{
+      if(architectureLabels[index]) architectureLabels[index].textContent = label;
+    });
+  }
   document.querySelectorAll('[data-wa]').forEach(a=>a.href=whatsapp);
   document.querySelectorAll('nav a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')===routePaths[route]));
   document.title = routeTitles[route];
