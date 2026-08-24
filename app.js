@@ -31,7 +31,8 @@ const imageMeta = {
 const image = (name, alt, className='section-image') => {
   const [width, height] = imageMeta[name];
   const isHero = className === 'hero-image';
-  return `<figure class="section-image ${className}"><img src="/images/${name}" alt="${alt}" width="${width}" height="${height}" loading="${isHero ? 'eager' : 'lazy'}" decoding="async"${isHero ? ' fetchpriority="high"' : ''}></figure>`;
+  const shouldEagerLoad = isHero || className === 'offer-image';
+  return `<figure class="section-image ${className}"><img src="/images/${name}" alt="${alt}" width="${width}" height="${height}" loading="${shouldEagerLoad ? 'eager' : 'lazy'}" decoding="async"${isHero ? ' fetchpriority="high"' : ''}></figure>`;
 };
 const intro = (eyebrow,title,text) => `<section class="page-intro"><div><p class="eyebrow">${eyebrow}</p><h1>${title}</h1><p class="lead">${text}</p>${cta()}</div><div class="intro-mark" aria-hidden="true"><i></i><i></i><i></i></div></section>`;
 const homePage = () => `<section class="hero"><div class="hero-copy"><p class="eyebrow">CLAREZA DE POSICIONAMENTO PARA PROFISSIONAIS LIBERAIS</p><h1>O seu negócio já tem valor.<br><em>Falta deixar claro</em> por que as pessoas certas deveriam escolher você.</h1><p class="lead">Você pode ter experiência, dominar diferentes áreas e entregar um excelente trabalho — e ainda ser percebido como apenas mais uma opção. A Crie SeUniverso transforma esse repertório em foco, oferta, linguagem e materiais que o cliente consegue compreender, valorizar e contratar. Começamos pelo Mapa de Posicionamento e damos forma a essa direção em um Site Estratégico próprio.</p><div class="actions">${cta()}<a class="text-link" href="/como-funciona/">Conhecer o processo <span>↓</span></a></div><p class="microcopy">Você não precisa chegar com tudo definido. Pesquisamos, organizamos e construímos essa direção junto com você.</p></div><aside class="hero-side">${image('hero-novo.jpeg','Edson Lima em ambiente profissional','hero-image')}<div class="hero-architecture"><p>clareza que se torna <strong>escolha.</strong></p><div class="architecture"><b>quem conduz</b><span></span><b>modelo de negócio</b><span></span><b>posicionamento</b><span></span><b>site estratégico</b></div></div></aside></section>
@@ -65,6 +66,12 @@ const routeTitles = {
   '/sobre': 'Sobre a Crie SeUniverso | Edson Lima',
   '/contato': 'Contato — Crie SeUniverso'
 };
+
+// Os renderizadores também são usados pelo pré-render do build. A execução
+// interativa abaixo permanece exclusiva do navegador para manter a navegação SPA.
+export { pages, routeTitles };
+
+if (typeof document !== 'undefined') {
 const menuToggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('nav');
 const main = document.querySelector('main');
@@ -94,6 +101,8 @@ function render(){
       if(architectureLabels[index]) architectureLabels[index].textContent = label;
     });
   }
+  document.querySelectorAll('.header-brand span').forEach(el=>el.innerHTML='Clareza de posicionamento<br>para profissionais liberais.');
+  document.querySelectorAll('footer p').forEach(el=>el.textContent='Clareza de posicionamento para profissionais liberais.');
   document.querySelectorAll('[data-wa]').forEach(a=>a.href=whatsapp);
   document.querySelectorAll('nav a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')===routePaths[route]));
   document.title = routeTitles[route];
@@ -117,3 +126,4 @@ homeLink.addEventListener('click',e=>{
 nav.addEventListener('click',closeMenu);
 document.querySelector('#year').textContent = new Date().getFullYear();
 render();
+}
