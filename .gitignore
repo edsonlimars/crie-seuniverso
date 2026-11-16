@@ -3,3 +3,4 @@ dist/
 vite.log
 vite-error.log
 .DS_Store
+desktop.ini
