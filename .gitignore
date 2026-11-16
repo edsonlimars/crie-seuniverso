@@ -4,3 +4,6 @@ vite.log
 vite-error.log
 .DS_Store
 desktop.ini
+.agents/
+.codex/
+.impeccable/
